@@ -1,0 +1,32 @@
+[
+  {
+    "date": "2026-03-17",
+    "title": "项目立项：把项目流、规则和部署入口收进一个桌面工作台",
+    "summary": "从一开始就不是做一个普通任务列表，而是把项目目录、规则、凭证、日志、部署状态和常用入口放进同一张 macOS 看板里。",
+    "evidence": "来源：.project.json / 项目元数据"
+  },
+  {
+    "date": "2026-04-19",
+    "title": "工作台骨架成型：全局搜索、菜单栏、批量操作",
+    "summary": "完成 Cmd+K 全局搜索、菜单栏常驻状态、批量操作和 Toast 反馈，开始从“能看”转向“能作为每日主界面使用”。",
+    "evidence": "来源：optimization-roadmap.md"
+  },
+  {
+    "date": "2026-04-20",
+    "title": "数据平面重构：凭证、云端绑定、项目级工作日志",
+    "summary": "把 token/账号从 Keychain 方案切回按需读取，云端侧扩到 Coolify / SSH / Gitea / Figma / 1Panel / HuggingFace，抽屉内加入项目级 worklog。",
+    "evidence": "来源：optimization-roadmap.md"
+  },
+  {
+    "date": "2026-04-21",
+    "title": "交互细化：SSH 面板、Figma 读取、Terminal 启动、抽屉动画修复",
+    "summary": "砍掉高噪音的实时 SSH 探测，新增设计稿读取、项目卡片直接开终端，并把抽屉蒙层与退场动画的错层问题彻底修掉。",
+    "evidence": "来源：worklog.json（2026-04-21）"
+  },
+  {
+    "date": "2026-04-22",
+    "title": "收官迭代：对话立项、助手接力、项目级快捷登录、内部分享版",
+    "summary": "把对话式立项、Claude/Codex 接力、项目级账号密码、分享复制、内部分享版和品牌收尾全部补齐，让这套工作台从个人工具走到可交付状态。",
+    "evidence": "来源：最终交付修改记录"
+  }
+]
