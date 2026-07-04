@@ -24,7 +24,6 @@
     <nav class="nav">
       <a href="#gallery">界面预览</a>
       <a href="#workflow">工作流</a>
-      <a href="#download">下载</a>
     </nav>
   </header>
 
@@ -44,12 +43,12 @@
         </div>
         <h1>一张真的能开工的 macOS 项目看板。</h1>
         <p class="hero-lead">
-          扫你本地 <code>~/Projects</code> 下的 code / research / business，读每个项目的 <code>.project.json</code> 和 <code>.memory/worklog.json</code>，把 Git 状态、待办信号、云端资源、日志回顾和多 LLM 助手一并收进一张桌面工作台。
+          扫你本地项目根目录下的全部分类（含自定义项目库），读每个项目的 <code>.project.json</code> 和 <code>.memory/worklog.json</code>，识别嵌套子项目、自动发现「合同外」野项目并一键收编。Git 状态、日志回顾、代码关系图、云端资源和 AI 会话工作台，都在同一张桌面看板里。
         </p>
 
         <div class="hero-actions">
-          <a class="button button-primary" href="#download">下载分享版（macOS 14+）</a>
-          <a class="button button-secondary" href="#gallery">查看真实界面</a>
+          <a class="button button-primary" href="#gallery">查看真实界面</a>
+          <a class="button button-secondary" href="#workflow">工作流演示</a>
         </div>
       </div>
 
@@ -190,320 +189,53 @@
     <section id="gallery" class="section gallery">
       <div class="section-heading section-heading-compact">
         <span class="section-label">界面预览</span>
-        <h2>这些都是 app 里真实跑着的界面，不是示意图。</h2>
+        <h2>这些是 v1.7.1 真实运行中的截图，不是示意图。</h2>
+        <p style="opacity:.65;font-size:13px;margin-top:6px;">灰色色块为发布时打码的私有信息（服务器地址、公司项目名等）。</p>
       </div>
 
-      <div class="gallery-grid">
-        <article class="gallery-card gallery-card-wide">
-          <div class="gallery-meta">
-            <span>Dashboard</span>
-            <strong>时间线分档看板</strong>
-            <p>所有项目按 <code>createdAt</code> 自动分五档：今日 / 近7天 / 本月 / 更早 / 归档。每张卡片上显示 Git 脏改、元数据不一致、日志缺失等待处理信号。</p>
-          </div>
-          <div class="ui-mock mock-dashboard">
-            <div class="ui-mock-chrome"><span class="tl tl-r"></span><span class="tl tl-y"></span><span class="tl tl-g"></span><span class="ui-mock-addr">工作看板 — Kang / Projects</span></div>
-            <div class="ui-mock-body">
-              <div class="db-head">
-                <strong class="db-title">工作看板</strong>
-                <div class="db-btns">
-                  <span class="db-btn db-btn-purple">对话立项</span>
-                  <span class="db-btn db-btn-blue">扫描</span>
-                  <span class="db-btn db-btn-gray">搜索</span>
-                  <span class="db-btn db-btn-orange">批量</span>
-                </div>
-              </div>
-              <p class="db-summary">12 个项目在当前视图中，4 个正在推进，2 个需要处理。</p>
-              <div class="db-metrics">
-                <div class="db-metric"><span>项目</span><strong class="ink">12</strong><em class="db-metric-dot db-metric-ink"></em></div>
-                <div class="db-metric"><span>待处理</span><strong class="orange">2</strong><em class="db-metric-dot db-metric-orange"></em></div>
-                <div class="db-metric"><span>已上线</span><strong class="green">5</strong><em class="db-metric-dot db-metric-green"></em></div>
-                <div class="db-metric"><span>近 7 天</span><strong class="purple">4</strong><em class="db-metric-dot db-metric-purple"></em></div>
-              </div>
-              <div class="db-bucket db-bucket-pin"><div class="db-b-head"><span class="db-b-icon">⌖</span><strong>置顶</strong><em>2 个</em></div>
-                <div class="db-b-row">
-                  <div class="db-pcard">
-                    <div class="db-pcard-tags"><span class="db-pin">📌</span><span class="db-t db-t-code">code</span><span class="db-t db-t-own">个人</span></div>
-                    <strong>rules-dashboard</strong>
-                    <code>~/Projects/code/rules-dashboard</code>
-                    <div class="db-pcard-links"><span class="db-l-green">主入口</span><span class="db-l-orange">文档</span><span class="db-l-purple">Repo</span></div>
-                    <div class="db-pcard-git">⎇ main <em class="db-dirty">3 变更</em> <span class="db-stk">Swift · AppKit · SQLite</span></div>
-                  </div>
-                  <div class="db-pcard">
-                    <div class="db-pcard-tags"><span class="db-pin">📌</span><span class="db-t db-t-code">code</span><span class="db-t db-t-own">个人</span></div>
-                    <strong>lumix-ops</strong>
-                    <code>~/Projects/code/lumix-ops</code>
-                    <div class="db-pcard-links"><span class="db-l-green">主入口</span><span class="db-l-orange">文档</span><span class="db-l-purple">Repo</span></div>
-                    <div class="db-pcard-git">⎇ main <em class="db-clean">clean</em> <span class="db-stk">Go · Docker · NATS</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="db-bucket db-bucket-today"><div class="db-b-head"><span class="db-b-icon">◉</span><strong>今日</strong><em>3 个</em></div>
-                <div class="db-b-row db-b-row-3">
-                  <div class="db-pcard"><div class="db-pcard-tags"><span class="db-t db-t-code">code</span><span class="db-t db-t-own">个人</span><span class="db-attn">⚠ 解析</span></div><strong>intake</strong><code>~/Projects/code/intake</code><div class="db-pcard-links"><span class="db-l-green">主入口</span><span class="db-l-orange">文档</span></div><div class="db-pcard-git">⎇ main <em class="db-dirty">3 变更</em></div></div>
-                  <div class="db-pcard"><div class="db-pcard-tags"><span class="db-t db-t-code">code</span><span class="db-t db-t-own">个人</span></div><strong>smartfile</strong><code>~/Projects/code/smartfile</code><div class="db-pcard-links"><span class="db-l-green">主入口</span><span class="db-l-orange">文档</span><span class="db-l-purple">Repo</span></div><div class="db-pcard-git">⎇ main <em class="db-clean">clean</em></div></div>
-                  <div class="db-pcard"><div class="db-pcard-tags"><span class="db-t db-t-code">code</span><span class="db-t db-t-own">个人</span></div><strong>hermes</strong><code>~/Projects/code/hermes</code><div class="db-pcard-links"><span class="db-l-green">主入口</span><span class="db-l-orange">文档</span></div><div class="db-pcard-git">⎇ main <em class="db-dirty">2 变更</em></div></div>
-                </div>
-              </div>
-              <div class="db-bucket db-bucket-week"><div class="db-b-head"><span class="db-b-icon">🔥</span><strong>近 7 天</strong><em>3 个</em></div>
-                <div class="db-b-row db-b-row-3 db-b-row-trim">
-                  <div class="db-pcard"><div class="db-pcard-tags"><span class="db-t db-t-code">code</span><span class="db-t db-t-own">个人</span></div><strong>flux</strong><code>~/Projects/code/flux</code></div>
-                  <div class="db-pcard"><div class="db-pcard-tags"><span class="db-t db-t-code">code</span><span class="db-t db-t-own">个人</span></div><strong>percept</strong><code>~/Projects/code/percept</code></div>
-                  <div class="db-pcard"><div class="db-pcard-tags"><span class="db-t db-t-code">code</span><span class="db-t db-t-own">个人</span></div><strong>ragflow</strong><code>~/Projects/code/ragflow</code></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
+      <style>
+        .shot-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(380px,1fr)); gap:22px; max-width:1180px; margin:0 auto; }
+        .shot-card { border-radius:16px; overflow:hidden; background:rgba(120,130,150,0.06); border:1px solid rgba(120,130,150,0.16); }
+        .shot-card img { width:100%; display:block; }
+        .shot-card figcaption { padding:12px 16px 14px; }
+        .shot-card figcaption strong { display:block; font-size:14px; margin-bottom:3px; }
+        .shot-card figcaption span { font-size:12.5px; opacity:.72; line-height:1.6; }
+        .shot-card.wide { grid-column: 1 / -1; }
+      </style>
 
-        <article class="gallery-card">
-          <div class="gallery-meta">
-            <span>Intake</span>
-            <strong>对话立项</strong>
-            <p>丢一段文案、URL 或 repo 进来，内置 LLM 先判断值不值得建项目。避免一上来就被新建表单拖住。</p>
-          </div>
-          <div class="ui-mock mock-intake">
-            <div class="ui-mock-chrome"><span class="tl tl-r"></span><span class="tl tl-y"></span><span class="tl tl-g"></span></div>
-            <div class="ui-mock-body">
-              <div class="in-head"><strong>对话立项</strong><span class="in-close">×</span></div>
-              <p class="in-sub">先分诊，再决定要不要建项目。把灵感 / repo / 文案都先扔进来。</p>
-              <div class="in-controls">
-                <div class="in-seg"><span class="in-seg-on">对话立项</span><span>高级表单</span></div>
-                <div class="in-asst"><span class="in-asst-lab">助手</span><span class="in-pill in-pill-pink on">Claude</span><span class="in-pill">Codex</span></div>
-              </div>
-              <div class="in-grid">
-                <div class="in-sc on" data-c="pink"><strong>炒作核查</strong><em>短视频线索先判断要不要做</em><span class="in-check">✓</span></div>
-                <div class="in-sc" data-c="purple"><strong>源码解析</strong><em>把 repo 拆成可读的文档</em></div>
-                <div class="in-sc" data-c="teal"><strong>快速确认</strong><em>一句话方案先聊一聊</em></div>
-                <div class="in-sc" data-c="green"><strong>公司项目</strong><em>进公司侧归档路径</em></div>
-              </div>
-              <div class="in-seed"><span class="in-seed-lab">种子内容</span><p>把一条短视频文案 / 一个 repo URL / 一段灵感文字贴进来…</p></div>
-              <div class="in-actions"><span class="in-cancel">取消</span><span class="in-cta">打开对话立项终端 →</span></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="gallery-card">
-          <div class="gallery-meta">
-            <span>Cloud</span>
-            <strong>云端绑定</strong>
-            <p>GitHub / Gitea / GitLab · Coolify · 1Panel · SSH · HuggingFace · Figma 的资源都绑回项目，实时拉 commit、容器状态。</p>
-          </div>
-          <div class="ui-mock mock-cloud">
-            <div class="ui-mock-chrome"><span class="tl tl-r"></span><span class="tl tl-y"></span><span class="tl tl-g"></span></div>
-            <div class="ui-mock-body cl-body">
-              <aside class="cl-side">
-                <div class="cl-side-head"><span>云端绑定</span><em class="cl-add">+</em></div>
-                <div class="cl-grp"><span class="cl-grp-lab">代码托管</span><em>3</em></div>
-                <div class="cl-item"><span class="cl-ico cl-ico-blue">{/}</span><div><strong>GitHub</strong><small>kang2050</small></div></div>
-                <div class="cl-item cl-item-on"><span class="cl-ico cl-ico-white">{/}</span><div><strong>Gitea</strong><small>kangwan</small></div></div>
-                <div class="cl-item"><span class="cl-ico cl-ico-blue">{/}</span><div><strong>GitLab</strong><small>kangwan</small></div></div>
-                <div class="cl-grp"><span class="cl-grp-lab">VPS &amp; 服务器</span><em>1</em></div>
-                <div class="cl-item"><span class="cl-ico cl-ico-green">&gt;_</span><div><strong>Lumix VPS</strong><small>root@76.13.31.179</small></div></div>
-                <div class="cl-grp"><span class="cl-grp-lab">云面板</span><em>2</em></div>
-                <div class="cl-item"><span class="cl-ico cl-ico-purple">▣</span><div><strong>Coolify</strong><small>kang-kang.com</small></div></div>
-              </aside>
-              <div class="cl-detail">
-                <div class="cl-d-head"><strong>Gitea</strong><span class="cl-kind">GITEA</span></div>
-                <code class="cl-url">https://git.kang-kang.com</code>
-                <div class="cl-creds"><span class="cl-c-user">kangwan</span><span class="cl-c-pass">●●●●●●●●●●●●</span><span class="cl-copy">复制 ssh</span></div>
-                <div class="cl-repo-head"><span>仓库</span><em>12</em><span class="cl-search">搜索仓库</span></div>
-                <ul class="cl-repos">
-                  <li class="cl-r-on"><span class="cl-r-priv">🔒</span>rules-dashboard</li>
-                  <li><span class="cl-r-pub">📖</span>smartfile-ai<em>★3</em></li>
-                  <li><span class="cl-r-priv">🔒</span>lumix-ops</li>
-                  <li><span class="cl-r-pub">📖</span>hermes-docs<em>★12</em></li>
-                  <li><span class="cl-r-pub">📖</span>flux-restore-docs<em>★5</em></li>
-                </ul>
-                <div class="cl-commits-head">最近提交</div>
-                <ul class="cl-commits">
-                  <li><code>689b78f</code><span>deploy: 把 nginx 配置拆到独立文件</span><em>5m</em></li>
-                  <li><code>9262ced</code><span>site: 介绍页重写 — 真实 app 功能 + 重力板</span><em>22m</em></li>
-                  <li><code>f55df84</code><span>auto-save 2026-04-23 22:40</span><em>1h</em></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="gallery-card">
-          <div class="gallery-meta">
-            <span>Logbook</span>
-            <strong>全局日志 · 按天聚合</strong>
-            <p>读主 <code>worklog.json</code> + 每个项目的 <code>.memory/worklog.json</code>。外部编辑或终端改动会实时 reload，不用切应用。</p>
-          </div>
-          <div class="ui-mock mock-logbook">
-            <div class="ui-mock-chrome"><span class="tl tl-r"></span><span class="tl tl-y"></span><span class="tl tl-g"></span><span class="lb-filter">本月 ▾</span></div>
-            <div class="ui-mock-body">
-              <div class="lb-day">今天 · 2026-04-24</div>
-              <div class="lb-row"><span class="lb-kind lb-kind-green">deploy</span><span class="lb-msg">nginx.conf 独立 + 上线 workdashboard</span><em>02:05</em></div>
-              <div class="lb-row"><span class="lb-kind lb-kind-blue">site</span><span class="lb-msg">介绍页重写：真实 app 功能 + 重力板</span><em>01:12</em></div>
-              <div class="lb-day">昨天 · 2026-04-23</div>
-              <div class="lb-row"><span class="lb-kind lb-kind-gray">auto-save</span><span class="lb-msg">auto-save 22:57 (~1)</span><em>22:57</em></div>
-              <div class="lb-row"><span class="lb-kind lb-kind-purple">coolify</span><span class="lb-msg">创建 rules-dashboard application</span><em>15:39</em></div>
-              <div class="lb-row"><span class="lb-kind lb-kind-orange">token</span><span class="lb-msg">Coolify API token 直插 DB</span><em>15:36</em></div>
-              <div class="lb-day">前天 · 2026-04-22</div>
-              <div class="lb-row"><span class="lb-kind lb-kind-gray">auto-save</span><span class="lb-msg">auto-save 18:25 (~2)</span><em>18:25</em></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="gallery-card">
-          <div class="gallery-meta">
-            <span>Rules</span>
-            <strong>规则与文档</strong>
-            <p><code>CLAUDE.md</code>、部署规则、项目约束、一键工作流都收进看板内部，不再散落在编辑器 + 记忆文件里。</p>
-          </div>
-          <div class="ui-mock mock-rules">
-            <div class="ui-mock-chrome"><span class="tl tl-r"></span><span class="tl tl-y"></span><span class="tl tl-g"></span></div>
-            <div class="ui-mock-body rl-body">
-              <aside class="rl-side">
-                <div class="rl-file rl-file-on"><span class="rl-f-ico rl-f-blue">D</span>CLAUDE.md</div>
-                <div class="rl-file"><span class="rl-f-ico rl-f-purple">D</span>02-部署规则.md</div>
-                <div class="rl-file"><span class="rl-f-ico rl-f-green">D</span>命名约束.md</div>
-                <div class="rl-file"><span class="rl-f-ico rl-f-orange">D</span>工作流 SOP.md</div>
-                <div class="rl-file"><span class="rl-f-ico rl-f-teal">D</span>SCHEMA.md</div>
-              </aside>
-              <div class="rl-preview">
-                <strong class="rl-title">CLAUDE.md</strong>
-                <small class="rl-meta">最后编辑 · 2026-04-20</small>
-                <h5># 工作看板协作约束</h5>
-                <h6>## 做事风格</h6>
-                <ul>
-                  <li>先跑 gitnexus_impact 再改符号</li>
-                  <li>不做兼容旧代码的 shim</li>
-                  <li>测试只盯 golden path</li>
-                </ul>
-                <h6>## 部署</h6>
-                <ul>
-                  <li>site/ 走 Coolify，不要塞其它</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="gallery-card">
-          <div class="gallery-meta">
-            <span>Ops</span>
-            <strong>运维面板</strong>
-            <p>Coolify / 1Panel 应用状态、容器健康、SSH 命令都在这里执行，不再需要开 5 个浏览器标签页。</p>
-          </div>
-          <div class="ui-mock mock-ops">
-            <div class="ui-mock-chrome"><span class="tl tl-r"></span><span class="tl tl-y"></span><span class="tl tl-g"></span></div>
-            <div class="ui-mock-body">
-              <div class="ops-server">
-                <span class="ops-server-ico">&gt;_</span>
-                <div class="ops-server-meta"><strong>Lumix VPS · root@76.13.31.179</strong><small>Debian 12 · 16 GiB · kang-kang.com</small></div>
-                <span class="ops-online">● ONLINE</span>
-              </div>
-              <div class="ops-label">容器 · 32 running</div>
-              <div class="ops-grid">
-                <div class="ops-c"><em class="ops-dot-green"></em><strong>coolify-proxy</strong><small>running</small></div>
-                <div class="ops-c ops-c-hl"><em class="ops-dot-green"></em><strong>workdashboard</strong><small>running</small></div>
-                <div class="ops-c"><em class="ops-dot-green"></em><strong>meetnote-api</strong><small>running</small></div>
-                <div class="ops-c"><em class="ops-dot-green"></em><strong>meetnote-web</strong><small>running</small></div>
-                <div class="ops-c"><em class="ops-dot-green"></em><strong>obdx-landing</strong><small>running</small></div>
-                <div class="ops-c"><em class="ops-dot-green"></em><strong>lobe-postgres</strong><small>healthy</small></div>
-                <div class="ops-c"><em class="ops-dot-green"></em><strong>coolify-db</strong><small>healthy</small></div>
-                <div class="ops-c"><em class="ops-dot-gray"></em><strong>dataease</strong><small>exited</small></div>
-                <div class="ops-c"><em class="ops-dot-green"></em><strong>wordpress</strong><small>running</small></div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="gallery-card">
-          <div class="gallery-meta">
-            <span>Credentials</span>
-            <strong>项目凭证 · 随项目走</strong>
-            <p>读项目目录里的 <code>credentials.md</code>，解析成结构化条目。一键复制账号、ssh 或直达服务器，演示和交接都省心。</p>
-          </div>
-          <div class="ui-mock mock-creds">
-            <div class="ui-mock-chrome"><span class="tl tl-r"></span><span class="tl tl-y"></span><span class="tl tl-g"></span></div>
-            <div class="ui-mock-body">
-              <div class="cr-tabs"><span class="cr-tab on">kang-bot</span><span class="cr-tab">flux-docs</span></div>
-              <div class="cr-card">
-                <span class="cr-ico cr-ico-dark">&gt;_</span>
-                <div class="cr-info"><strong>SSH · Lumix VPS</strong><small>root@76.13.31.179</small><code>····~/.ssh/id_ed25519</code></div>
-                <div class="cr-btns"><span class="cr-copy">复制</span><span class="cr-ssh">一键 SSH</span></div>
-              </div>
-              <div class="cr-card">
-                <span class="cr-ico cr-ico-blue">▣</span>
-                <div class="cr-info"><strong>Coolify 控制台</strong><small>kang@coolify.kang-kang.com</small><code>●●●●●●●●●●●●</code></div>
-                <div class="cr-btns"><span class="cr-copy">复制</span><span class="cr-ssh">一键 SSH</span></div>
-              </div>
-              <div class="cr-card">
-                <span class="cr-ico cr-ico-teal">{/}</span>
-                <div class="cr-info"><strong>Gitea git.kang-kang.com</strong><small>kangwan / rules-dashboard</small><code>●●●●●●●● · gitea-token</code></div>
-                <div class="cr-btns"><span class="cr-copy">复制</span><span class="cr-ssh">一键 SSH</span></div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="gallery-card gallery-card-wide">
-          <div class="gallery-meta">
-            <span>Handoff</span>
-            <strong>助手接力 · 每张项目卡直接开工</strong>
-            <p>每张项目卡底部都带 Claude 和 Codex 两个按钮。点一下，<code>ProjectAssistantHandoffService</code> 扫 <code>~/.claude/projects/</code> + <code>~/.codex/sessions/</code> 找这个项目最近的会话，写出 <code>.memory/assistant-handoff.md</code>（最近 3 条提问 + 2 条回复摘要、当前 Git 分支、dirty 文件清单），再用 AppleScript 打开一个 Terminal 窗口，把项目路径复制到剪贴板、拉起 CLI、让助手自己读这份 handoff。内部分享版通过 <code>AppFlavor.supportsAssistantLaunch</code> 直接禁用，按钮都不渲染。</p>
-          </div>
-          <div class="ui-mock mock-handoff">
-            <div class="ui-mock-chrome"><span class="tl tl-r"></span><span class="tl tl-y"></span><span class="tl tl-g"></span><span class="ui-mock-addr">项目卡 · 点 Claude 后</span></div>
-            <div class="ui-mock-body ho-flow">
-              <!-- Panel 1: project card with Claude + Codex -->
-              <div class="ho-panel ho-panel-card">
-                <div class="ho-p-head">① 项目卡</div>
-                <div class="ho-pcard">
-                  <div class="ho-pcard-top"><span class="db-t db-t-code">code</span><span class="db-t db-t-own">个人</span></div>
-                  <strong>rules-dashboard</strong>
-                  <code class="ho-pcard-path">~/Projects/code/rules-dashboard</code>
-                  <div class="ho-pcard-git">⎇ main <em class="db-dirty">3 变更</em></div>
-                  <div class="ho-pcard-btns">
-                    <span class="ho-btn ho-btn-claude ho-btn-pressed">✦ Claude</span>
-                    <span class="ho-btn ho-btn-codex">&lt;/&gt; Codex</span>
-                  </div>
-                </div>
-              </div>
-
-              <span class="ho-arrow">→</span>
-
-              <!-- Panel 2: handoff.md preview -->
-              <div class="ho-panel ho-panel-file">
-                <div class="ho-p-head">② <code>.memory/assistant-handoff.md</code> 刚写入</div>
-                <div class="ho-file">
-                  <h5># 项目接力</h5>
-                  <small>生成时间 · 刚才 · rules-dashboard · active</small>
-                  <h6>## Claude 最近会话</h6>
-                  <p class="ho-f-meta">Session · 22a06aea-9e5c… · 昨天 23:14</p>
-                  <p class="ho-f-quote">最近提问：「把 gallery 换成 CSS 手绘 mock，别再用真截图」</p>
-                  <h6>## Codex 最近会话</h6>
-                  <p class="ho-f-meta">未找到匹配当前项目的最近会话</p>
-                  <h6>## 当前仓库状态</h6>
-                  <p class="ho-f-meta">main · 3 变更 · 最后提交 <code>a4dce20</code></p>
-                  <p class="ho-f-files">M site/index.html · M styles.css · M worklog.json</p>
-                </div>
-              </div>
-
-              <span class="ho-arrow">→</span>
-
-              <!-- Panel 3: Terminal -->
-              <div class="ho-panel ho-panel-term">
-                <div class="ho-p-head">③ Terminal 打开 · CLI 自己读 handoff</div>
-                <div class="ho-term">
-                  <div class="ho-term-head"><span class="tl tl-r"></span><span class="tl tl-y"></span><span class="tl tl-g"></span><em>claude — rules-dashboard</em></div>
-                  <div class="ho-term-body">
-                    <code class="ho-t-info">✓ 进入 rules-dashboard · 路径已复制到剪贴板</code>
-                    <code class="ho-t-info">✓ 已载入 Claude 最近会话，等待下一条指令</code>
-                    <code class="ho-t-prompt">$ claude --prompt "读 .memory/assistant-handoff.md..."</code>
-                    <code class="ho-t-out">Reading handoff… understood recent progress.</code>
-                    <code class="ho-t-out">Ready. What's next?</code>
-                    <code class="ho-t-cursor">▊</code>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
+      <div class="shot-grid">
+        <figure class="shot-card wide">
+          <img src="./assets/screens/v2/kanban.png" alt="看板：187 个项目按置顶/今日/近7天分组" loading="lazy">
+          <figcaption><strong>看板 · 187 个项目的真实工作台</strong><span>置顶 / 今日 / 近 7 天自动分组，卡片带 Git 状态、技术栈、待处理信号；顶部横幅提示「合同外目录待收编」，一键补齐项目元数据。</span></figcaption>
+        </figure>
+        <figure class="shot-card">
+          <img src="./assets/screens/v2/terminal.png" alt="终端工作台：AI 会话画布与历史台账" loading="lazy">
+          <figcaption><strong>终端 · AI 会话工作台</strong><span>对话立项可选 Claude / Codex，会话跑在内嵌 tmux 画布里；每个会话关闭时自动记台账——干了什么、改了哪些文件、用时多少。</span></figcaption>
+        </figure>
+        <figure class="shot-card">
+          <img src="./assets/screens/v2/graph.png" alt="代码关系图：G6 力导向图" loading="lazy">
+          <figcaption><strong>总图谱 · 代码关系图</strong><span>AntV G6 力导向渲染：文件 / 函数 / 类 / 流程分色，悬停高亮调用邻域，节点可拖拽，完全离线。</span></figcaption>
+        </figure>
+        <figure class="shot-card">
+          <img src="./assets/screens/v2/logbook.png" alt="日志与周报" loading="lazy">
+          <figcaption><strong>日志 · 干了什么一目了然</strong><span>全部项目的 worklog 汇成时间流，按今日 / 本周 / 30 天过滤；周报素材自动归集，AI 一键总结。</span></figcaption>
+        </figure>
+        <figure class="shot-card">
+          <img src="./assets/screens/v2/cloud.png" alt="云端绑定" loading="lazy">
+          <figcaption><strong>云端 · 基建统一入口</strong><span>Git 托管、VPS、云面板、AI 平台绑定回项目卡片，部署状态一处可见。</span></figcaption>
+        </figure>
+        <figure class="shot-card">
+          <img src="./assets/screens/v2/rulebook.png" alt="规则手册" loading="lazy">
+          <figcaption><strong>规则手册 · 约定即文档</strong><span>项目的 RULES / AGENTS / SCHEMA 就地渲染，还能基于文档直接提问。</span></figcaption>
+        </figure>
+        <figure class="shot-card">
+          <img src="./assets/screens/v2/ops.png" alt="运维面板" loading="lazy">
+          <figcaption><strong>运维 · 本地服务监控</strong><span>看板自带的后端服务（HTTP / 端口注册 / 图谱索引）状态、端口、PID、日志一屏管理。</span></figcaption>
+        </figure>
+        <figure class="shot-card">
+          <img src="./assets/screens/v2/credentials.png" alt="凭证面板锁定态" loading="lazy">
+          <figcaption><strong>凭证 · Touch ID 之后才见真身</strong><span>Token、密码、UUID 统一收纳，Touch ID / 密码解锁；截图里你只能看到锁。</span></figcaption>
+        </figure>
       </div>
     </section>
 
@@ -587,46 +319,6 @@
           <h3>云端对齐</h3>
           <p>GitHub · Coolify · SSH 绑回，凭证从 <code>credentials.md</code> 实时读。</p>
         </article>
-      </div>
-    </section>
-
-
-    <section id="download" class="section">
-      <div class="section-head">
-        <span class="section-kicker">Download</span>
-        <h2>下载与安装</h2>
-        <p>分享版免费下载，无需注册。app 只读写你本机的文件，不上传任何项目内容。</p>
-      </div>
-
-      <div style="max-width:860px;margin:0 auto;display:grid;gap:18px;">
-        <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
-          <a class="button button-primary" href="https://github.com/kang2050/work-dashboard/releases/latest">⬇ 下载最新分享版 .zip</a>
-          <span style="opacity:.7;font-size:13px;">当前 v1.7.1 · 约 8MB · 需要 macOS 14 (Sonoma) 及以上</span>
-        </div>
-
-        <div>
-          <h3 style="font-size:15px;margin:8px 0;">安装步骤</h3>
-          <ol style="line-height:1.9;font-size:14px;opacity:.9;padding-left:20px;">
-            <li>下载 zip，双击解压得到 <code>工作看板.app</code>，拖进「应用程序」文件夹</li>
-            <li>首次打开：<strong>右键点击 app → 「打开」→ 再点「打开」</strong>（分享版未做 Apple 公证，直接双击会被 Gatekeeper 拦一次，右键打开只需一次）</li>
-            <li>首次启动会引导你选择要扫描的项目根目录（如 <code>~/Projects</code>），之后它就照着你的目录干活</li>
-          </ol>
-        </div>
-
-        <div>
-          <h3 style="font-size:15px;margin:8px 0;">分享版包含什么</h3>
-          <p style="font-size:14px;line-height:1.8;opacity:.9;">
-            分享版 = 本地项目看板的完整核心：目录扫描、项目卡片墙、Git 状态、<code>.project.json</code> 元数据、日志回顾、洞察与规则手册。
-            页面里演示的「对话立项 / AI 助手接力 / 运维自动化」属于作者自用的完整版，依赖本机的 Claude/Codex CLI 与私有基础设施，暂不随分享版提供。
-          </p>
-        </div>
-
-        <div>
-          <h3 style="font-size:15px;margin:8px 0;">许可与源码</h3>
-          <p style="font-size:14px;line-height:1.8;opacity:.9;">
-            免费使用，暂不开放源码。问题反馈请在 <a href="https://github.com/kang2050/work-dashboard/issues">GitHub Issues</a> 提。
-          </p>
-        </div>
       </div>
     </section>
 
